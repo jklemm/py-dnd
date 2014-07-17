@@ -12,7 +12,6 @@ My idea begins in a lot of stages, in this order:
 Ok, I know, it's suicide! But, I'm not rushed.
 
 ## Requirements
-For moment, just this:
 [Python 3.4](https://www.python.org/downloads/release/python-341/)
 
 ## Installation
@@ -20,11 +19,14 @@ First, I need to code the initial structure :)
 
 ## License
 This project is under [MIT License](http://opensource.org/licenses/MIT)
+
 All Dungeons and Dragons rights to [Wizards of the Coast](http://www.wizards.com/dnd/)
 
 ## Resources
 [Python Official Website](https://www.python.org/)
+
 [A beginners introduction into Python](http://www.afterhoursprogramming.com/tutorial/Python/Introduction/)
+
 [Project Wiki](https://github.com/jklemm/py-dnd/wiki/)
 
 ## Other
