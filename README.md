@@ -11,7 +11,7 @@ My idea begins in a lot of stages, in this order:
 
 So, don't expect a 3D MMORPG, just console or 2d like a 'RPG Maker game' is a good sample!
 
-Ok, I know, it's suicide! But, I'm not rushed.
+Ok, I know, it's suicide! I'm not in a hurry at all.
 
 First of all, I'm writing the specs of the project in the [Project Wiki](https://github.com/jklemm/py-dnd/wiki/)
 ## Requirements
