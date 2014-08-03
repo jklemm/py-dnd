@@ -28,16 +28,34 @@ class Game(object):
 		print ("2-Load Game")
 		print ("3-Credits")
 		print ("4-Exit")
+		print ("------")
+		
+		option = userInputNumber("Press a number and hit Enter: ", 1, 4)
+		
+		if(option==1):
+			self.newGame()
+		elif(option==2):
+			self.loadGame()
+		elif(option==3):
+			self.credits()
+		elif(option==4):
+			self.exit()
+
+	def newGame(self):
+		print ("newGame")
+
+	def loadGame(self):
+		print ("loadGame")
+
+	def credits(self):
+		print ("credits")
+
+	def exit(self):
+		print ("exit")
+		exit()
 
 	def start(self):
 		self.logo()
-		
-		self.mainMenu()
-
-		name = input("Player name:")
-		self.player.setName(name)
-
-		gender = input("Player gender:")
-		self.player.setGender(gender)
-
-		pause()
+		while True:
+			self.mainMenu()
+			pause()
