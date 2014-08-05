@@ -23,3 +23,15 @@ def userInputNumber(message, minimum, maximum):
 		else:
 			break
 	return userInput
+
+def userInputString(message):
+	userInput = ''
+	while True:
+		try:
+			userInput = str(input(message))
+		except ValueError:
+			print ("The input value is not an valid text!")
+			continue
+		else:
+			break
+	return userInput

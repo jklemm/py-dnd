@@ -23,12 +23,12 @@ class Game(object):
 
 	def mainMenu(self):
 		print ("MENU")
-		print ("------")
+		print ("-----------")
 		print ("1-New Game")
 		print ("2-Load Game")
 		print ("3-Credits")
 		print ("4-Exit")
-		print ("------")
+		print ("-----------")
 		
 		option = userInputNumber("Press a number and hit Enter: ", 1, 4)
 		
@@ -42,7 +42,18 @@ class Game(object):
 			self.exit()
 
 	def newGame(self):
-		print ("newGame")
+		clear()
+		print ("-----------")
+		print ("NEW GAME")
+		print ("-----------")
+		print ("Welcome to the world of Dungeons and Dragons!")
+		name = userInputString("First, select your Player's name and press Enter: ")
+		player = Player()
+		player.setName(name)
+		print ("Ok " + name + "!")
+		race = userInputString("Now select your Player's Race and press Enter: ")
+		player.setRace(race)
+		print (player)
 
 	def loadGame(self):
 		print ("loadGame")
