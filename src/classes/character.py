@@ -122,8 +122,8 @@ class BaseCharacter(object):
 	def getDex(self):
 		return self.dex
 
-	def setInt(self, int):
-		self.int = int
+	def setInt(self, intelligence):
+		self.int = intelligence
 
 	def getInt(self):
 		return self.int

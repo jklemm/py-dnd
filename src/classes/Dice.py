@@ -38,21 +38,3 @@ class Dice(object):
 			result += randomnumber
 		logging.debug (str(self.bonus) + " = ")
 		return result + self.bonus
-
-# Manual Tests simple side dice
-#print (Dice("d4").throwDice())
-#print (Dice("d6").throwDice())
-#print (Dice("d8").throwDice())
-#print (Dice("d12").throwDice())
-#print (Dice("d20").throwDice())
-
-# Manual Tests with Times
-#print (Dice("2d12").throwDice())
-#print (Dice("3d20").throwDice())
-
-# Manual Tests with Times and Bonus
-#print (Dice("2d20+10").throwDice())
-#print (Dice("3d8+4").throwDice())
-
-# Manual Tests with custom side Dice
-#print (Dice("3d1000+20").throwDice())
