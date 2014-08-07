@@ -15,7 +15,8 @@ Ok, I know, it's suicide! I'm not in a hurry at all.
 
 First of all, I'm writing the specs of the project in the [Project Wiki](https://github.com/jklemm/py-dnd/wiki/)
 ## Requirements
-[Python 3.4](https://www.python.org/downloads/release/python-341/)
+For questions of learning (and hate source code with a lot of brackets) the project was change to Python 2.7.x syntax
+[Python 2.7.x](https://www.python.org/download/releases/2.7/)
 ## Installation
 First, I need to code the initial structure :)
 ## License
