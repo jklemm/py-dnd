@@ -1,34 +1,34 @@
 
-from classes.CommandLineInterface import *
-from classes.Player import *
+from classes.commandlineinterface import *
+from classes.character import *
 
 class Game(object):
 	
 	def __init__ (self):
-		self.player = Player()
+		self.player = BaseCharacter()
 	
 	def logo(self):
-		print ("                                                                          ")
-		print ("                                             88                        88 ")
-		print ("                                             88                        88 ")
-		print ("                                             88                        88 ")
-		print ("8b,dPPYba,   8b       d8             ,adPPYb,88  8b,dPPYba,    ,adPPYb,88 ")
-		print ("88P'    \"8a  `8b     d8'  aaaaaaaa  a8\"    `Y88  88P'   `\"8a  a8\"    `Y88 ")
-		print ("88       d8   `8b   d8'   \"\"\"\"\"\"\"\"  8b       88  88       88  8b       88 ")
-		print ("88b,   ,a8\"    `8b,d8'              \"8a,   ,d88  88       88  \"8a,   ,d88 ")
-		print ("88`YbbdP\"'       Y88'                `\"8bbdP\"Y8  88       88   `\"8bbdP\"Y8 ")
-		print ("88               d8'                                                      ")
-		print ("88              d8'                                                       ")
-		print ("                                                                          ")
+		print "                                                                          "
+		print "                                             88                        88 "
+		print "                                             88                        88 "
+		print "                                             88                        88 "
+		print "8b,dPPYba,   8b       d8             ,adPPYb,88  8b,dPPYba,    ,adPPYb,88 "
+		print "88P'    \"8a  `8b     d8'  aaaaaaaa  a8\"    `Y88  88P'   `\"8a  a8\"    `Y88 "
+		print "88       d8   `8b   d8'   \"\"\"\"\"\"\"\"  8b       88  88       88  8b       88 "
+		print "88b,   ,a8\"    `8b,d8'              \"8a,   ,d88  88       88  \"8a,   ,d88 "
+		print "88`YbbdP\"'       Y88'                `\"8bbdP\"Y8  88       88   `\"8bbdP\"Y8 "
+		print "88               d8'                                                      "
+		print "88              d8'                                                       "
+		print "                                                                          "
 
 	def mainMenu(self):
-		print ("MENU")
-		print ("-----------")
-		print ("1-New Game")
-		print ("2-Load Game")
-		print ("3-Credits")
-		print ("4-Exit")
-		print ("-----------")
+		print "MENU"
+		print "-----------"
+		print "1-New Game"
+		print "2-Load Game"
+		print "3-Credits"
+		print "4-Exit"
+		print "-----------"
 		
 		option = userInputNumber("Press a number and hit Enter: ", 1, 4)
 		
@@ -43,26 +43,31 @@ class Game(object):
 
 	def newGame(self):
 		clear()
-		print ("-----------")
-		print ("NEW GAME")
-		print ("-----------")
-		print ("Welcome to the world of Dungeons and Dragons!")
+		print "-----------"
+		print "NEW GAME"
+		print "-----------"
+		print "Welcome to the world of Dungeons and Dragons!"
+		
 		name = userInputString("First, select your Player's name and press Enter: ")
-		player = Player()
-		player.setName(name)
-		print ("Ok " + name + "!")
+		
+		player = BaseCharacter()
+		player.setPname(name)
+		
+		print "Ok " + name + "!"
+		
 		race = userInputString("Now select your Player's Race and press Enter: ")
 		player.setRace(race)
-		print (player)
+		
+		print str(player)
 
 	def loadGame(self):
-		print ("loadGame")
+		print "loadGame"
 
 	def credits(self):
-		print ("credits")
+		print "credits"
 
 	def exit(self):
-		print ("exit")
+		print "exit"
 		exit()
 
 	def start(self):
