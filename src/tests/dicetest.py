@@ -55,7 +55,7 @@ class DiceTestCase(unittest.TestCase):
 	# Manual Tests with Times and Bonus
 	def test_2d20plus10(self):
 		for i in range(0,5):
-			result = Dice("2d20+100").throwDice()
+			result = Dice("2d20+10").throwDice()
 			self.assertGreaterEqual(result, 12)
 			self.assertLessEqual(result, 50)
 
