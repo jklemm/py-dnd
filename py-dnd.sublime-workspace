@@ -1,0 +1,389 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"debug",
+				"DEBUG"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"getC",
+				"getClazz"
+			],
+			[
+				"server",
+				"server_new"
+			],
+			[
+				"Model",
+				"ModelBase"
+			],
+			[
+				"ibg",
+				"ibgeCode"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "#!/usr/bin/python\n\nimport logging, sys\nimport unittest\nfrom classes.dice import *\n\nFORMAT = '%(levelname)s %(message)s'\nlogging.basicConfig(format=FORMAT, level=logging.DEBUG)\nlog = logging.getLogger()\n\nclass DiceTestCase(unittest.TestCase):\n	def setUp(self):\n\n		pass\n\n	# Normal dices\n	def test_d4(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"d4\").throwDice()\n			log.debug(\"test %d | d4 -> %d\", i, result)\n			self.assertGreaterEqual(result, 1)\n			self.assertLessEqual(result, 4)\n\n	def test_d6(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"d6\").throwDice()\n			log.debug(\"test %d | d6 -> %d\", i, result)\n			self.assertGreaterEqual(result, 1)\n			self.assertLessEqual(result, 6)\n\n	def test_d8(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"d8\").throwDice()\n			log.debug(\"test %d | d8 -> %d\", i, result)\n			self.assertGreaterEqual(result, 1)\n			self.assertLessEqual(result, 8)\n\n	def test_d12(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"d12\").throwDice()\n			log.debug(\"test %d | d12 -> %d\", i, result)\n			self.assertGreaterEqual(result, 1)\n			self.assertLessEqual(result, 12)\n\n	def test_d20(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"d20\").throwDice()\n			log.debug(\"test %d | d20 -> %d\", i, result)\n			self.assertGreaterEqual(result, 1)\n			self.assertLessEqual(result, 20)\n\n	# Manual Tests with Times\n	def test_2d12(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"2d12\").throwDice()\n			log.debug(\"test %d | 2d12 -> %d\", i, result)\n			self.assertGreaterEqual(result, 2)\n			self.assertLessEqual(result, 24)\n\n	def test_3d20(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"3d20\").throwDice()\n			log.debug(\"test %d | 3d20 -> %d\", i, result)\n			self.assertGreaterEqual(result, 3)\n			self.assertLessEqual(result, 60)\n\n	# Manual Tests with Times and Bonus\n	def test_2d20plus10(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"2d20+10\").throwDice()\n			log.debug(\"test %d | 2d20+10 -> %d\", i, result)\n			self.assertGreaterEqual(result, 12)\n			self.assertLessEqual(result, 50)\n\n	def test_3d8plus4(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"3d8+4\").throwDice()\n			log.debug(\"test %d | 3d8+4 -> %d\", i, result)\n			self.assertGreaterEqual(result, 7)\n			self.assertLessEqual(result, 28)\n\n	# Manual Tests with custom side Dice\n	def test_3d1000plus20(self):\n		for i in range(1,6):\n			if i == 1 and log.isEnabledFor(logging.DEBUG):\n				print \"\"\n			result = Dice(\"3d1000+20\").throwDice()\n			log.debug(\"test %d | 3d1000+20 -> %d\", i, result)\n			self.assertGreaterEqual(result, 23)\n			self.assertLessEqual(result, 3020)\n\nif __name__ == '__main__':\n	suite = unittest.TestLoader().loadTestsFromTestCase(DiceTestCase)\n	unittest.TextTestRunner(verbosity=1).run(suite)\n",
+			"file": "src/tests/dicetest.py",
+			"file_size": 3223,
+			"file_write_time": 1407524744000000,
+			"settings":
+			{
+				"buffer_size": 3223,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/dice.py",
+			"settings":
+			{
+				"buffer_size": 849,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/muriel/Documents/py-dnd/src/tests/logtest.py",
+		"/Users/muriel/Documents/RepositoriosGit/meuspedidos-online/representante/templates/layout_bootstrap/integracoes/integracoes.html",
+		"/Users/muriel/Documents/RepositoriosGit/meuspedidos-online/representante/integracoes/views/integracoes.py",
+		"/Users/muriel/Documents/py-dnd/src/tests/dicetest.py",
+		"/Users/muriel/Documents/py-dnd/src/classes/dice.py",
+		"/Users/muriel/Documents/py-dnd/src/classes/character.py",
+		"/Users/muriel/Documents/py-dnd/src/tests/__init__.py",
+		"/Users/muriel/Documents/py-dnd/src/classes/tests/dicetest.py",
+		"/Users/muriel/Documents/py-dnd/README.md",
+		"/Users/muriel/Documents/py-dnd/src/classes/game.py",
+		"/Users/muriel/Documents/py-dnd/src/classes/commandlineinterface.py",
+		"/Users/muriel/Documents/py-dnd/src/classes/__init__.py",
+		"/Users/muriel/Documents/py-dnd/src/main.py",
+		"/Users/muriel/Documents/py-dnd/src/__init__.py",
+		"/Users/muriel/Documents/py-dnd/src/.gitignore",
+		"/Users/muriel/Documents/django_proj_name/urls.py",
+		"/Users/muriel/Documents/django_proj_name/servers/urls.py",
+		"/Users/muriel/Documents/django_proj_name/servers/templates/servers/server_form.html",
+		"/Users/muriel/Documents/django_proj_name/servers/templates/servers/server_list.html",
+		"/Users/muriel/Documents/django_proj_name/servers/templates/servers/server_confirm_delete.html",
+		"/Users/muriel/Documents/django_proj_name/servers/views.py",
+		"/Users/muriel/Documents/django_proj_name/servers/models.py",
+		"/Users/muriel/Documents/django_proj_name/servers/admin.py",
+		"/Users/muriel/Documents/django_proj_name/settings.py",
+		"/Users/muriel/Documents/RepositoriosGit/meuspedidos-online/representante/scripts.txt",
+		"/Users/muriel/Desktop/cidades.json",
+		"/Users/muriel/Desktop/cidades.py",
+		"/Users/muriel/Documents/vpsa/produto1.json",
+		"/Users/muriel/Documents/vpsa/produto4.json",
+		"/Users/muriel/Documents/vpsa/produto3.json",
+		"/Users/muriel/Documents/vpsa/produto2.json",
+		"/Users/muriel/Desktop/cidades 2.json",
+		"/Users/muriel/Documents/RepositoriosGit/meuspedidos-offline/offline/MeusPedidosMobile/MeusPedidos.Core/Models/ItemPedidoOnline.cs",
+		"/Users/muriel/Documents/vpsa/rails-oauth-client/app/controllers/home_controller.rb",
+		"/Users/muriel/Documents/vpsa/rails-oauth-client/app/controllers/application_controller.rb",
+		"/Users/muriel/Documents/test-svn/hooks/pre-revprop-change.tmpl",
+		"/Users/muriel/Documents/test-svn/hooks/pre-revprop-change",
+		"/Users/muriel/Documents/teste_git/COPYING.txt",
+		"/Users/muriel/Documents/teste_git/CHANGES.txt",
+		"/Users/muriel/Documents/test-svn-git/CHANGES.txt",
+		"/Users/muriel/Documents/repositorio/users.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"if i == 1 and loglevel == logging.DEBUG:",
+			"range(1,6):",
+			"log.debug(\"",
+			"print \"\"",
+			"0,5",
+			".throwDice()",
+			"0,50",
+			".throwDice()",
+			"(\"",
+			"DEBUG",
+			"log",
+			"eh",
+			"debug",
+			"eh",
+			"stdout",
+			"0,5",
+			".top-bar",
+			"integracoes",
+			"1500px",
+			"50px",
+			"%}\n",
+			"body",
+			"...",
+			" .",
+			";\n",
+			"span",
+			"(self):",
+			"5",
+			"):\n",
+			"assertGreaterEqual",
+			"= ",
+			"pass",
+			"def test",
+			"test",
+			"Test",
+			"test",
+			"		assertGreaterEqual(result, 1)\n		assertLessEqual(result, 8)\n\n",
+			"throw = ",
+			"throw",
+			"throwDice())",
+			"#print (",
+			"dice",
+			"*\n",
+			"DiceTest",
+			"brackets",
+			"return",
+			"(\"",
+			"(",
+			"set",
+			"self.",
+			"BaseCharacter",
+			")",
+			"True",
+			"=",
+			"SincronizarMulticontas",
+			"tentativasRestantes--;",
+			"Atualizar",
+			"permiteVenda",
+			"?",
+			"null",
+			"application",
+			"oauth_callback_url",
+			"#",
+			"meuspedidos.com.br"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"None"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/tests/dicetest.py",
+					"settings":
+					{
+						"buffer_size": 3223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								259,
+								259
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/classes/dice.py",
+					"settings":
+					{
+						"buffer_size": 849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								302,
+								302
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 62.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"inte",
+				"representante/integracoes/views/integracoes.py"
+			],
+			[
+				"integracoes",
+				"representante/templates/layout_bootstrap/integracoes/integracoes.html"
+			],
+			[
+				"sessa",
+				"offline/MeusPedidosMobile/MeusPedidos.Core/Utils/Sessao.cs"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/muriel/Documents/RepositoriosGit/meuspedidos-online/meus_pedidos_online.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 295.0,
+	"status_bar_visible": true
+}

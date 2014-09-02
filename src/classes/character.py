@@ -1,170 +1,162 @@
-
 class BaseCharacter(object):
-	
-	def __init__ (self):
+    def __init__(self):
+        """ CHARACTER SHEET """
 
-		''' CHARACTER SHEET '''
-		
-		# Player Name
-		self.pname  = ''
-		# Character Name
-		self.cname  = ''
-		# Class
-		self.clazz  = ''
-		# Race
-		self.race   = 0
-		# Age
-		self.age    = 0
-		# Gender
-		self.gender = ''
-		# Level
-		self.level  = 1
-		# XP
-		self.xp     = 0
+        # Player Name
+        self.pname = ''
+        # Character Name
+        self.cname = ''
+        # Class
+        self.clazz = ''
+        # Race
+        self.race = 0
+        # Age
+        self.age = 0
+        # Gender
+        self.gender = ''
+        # Level
+        self.level = 1
+        # XP
+        self.xp = 0
 
-		''' ABILITY SCORES '''
+        """ ABILITY SCORES """
 
-		# Strength
-		self.str = 0
-		# Constituition
-		self.con = 0
-		# Dexterity
-		self.dex = 0
-		# Intelligence
-		self.int = 0
-		# Wisdom
-		self.wis = 0
-		# Charisma
-		self.cha = 0
+        # Strength
+        self.str = 0
+        # Constituition
+        self.con = 0
+        # Dexterity
+        self.dex = 0
+        # Intelligence
+        self.int = 0
+        # Wisdom
+        self.wis = 0
+        # Charisma
+        self.cha = 0
 
-		''' HIT POINTS '''
+        """ HIT POINTS """
 
-		# Max Hit Points
-		self.maxhp = 0
-		# Bloodied
-		self.bloodied = 0
+        # Max Hit Points
+        self.maxhp = 0
+        # Bloodied
+        self.bloodied = 0
 
-		''' OTHERS '''
-		# Armor Class
-		self.ac = 0
-		# Gold Pieces
-		self.gp = 0
+        """ OTHERS """
+        # Armor Class
+        self.ac = 0
+        # Gold Pieces
+        self.gp = 0
 
-	def __unicode__(self):
-		return "I am "+str(self.getPname())+", the "+str(self.getRace())
+    def __unicode__(self):
+        return "I am " + str(self.getPname()) + ", the " + str(self.getRace())
 
-	def __str__(self):
-		return "I am "+str(self.getPname())+", the "+str(self.getRace())
+    def __str__(self):
+        return "I am " + str(self.getPname()) + ", the " + str(self.getRace())
 
-	def setPname(self, pname):
-		self.pname = pname
+    def set_pname(self, pname):
+        self.pname = pname
 
-	def getPname(self):
-		return self.pname
+    def get_pname(self):
+        return self.pname
 
-	def setCname(self, cname):
-		self.cname = cname
+    def set_cname(self, cname):
+        self.cname = cname
 
-	def getCname(self):
-		return self.cname
+    def get_cname(self):
+        return self.cname
 
-	def setClazz(self, clazz):
-		self.clazz = clazz
+    def set_clazz(self, clazz):
+        self.clazz = clazz
 
-	def getClazz(self):
-		return self.clazz
+    def get_clazz(self):
+        return self.clazz
 
-	def setRace(self, race):
-		self.race = race
+    def set_race(self, race):
+        self.race = race
 
-	def getRace(self):
-		return self.race
+    def get_race(self):
+        return self.race
 
-	def setAge(self, age):
-		self.age = age
+    def set_age(self, age):
+        self.age = age
 
-	def getAge(self):
-		return self.age
+    def get_age(self):
+        return self.age
 
-	def setGender(self, gender):
-		self.gender = gender
+    def set_gender(self, gender):
+        self.gender = gender
 
-	def getGender(self):
-		return self.gender
+    def get_gender(self):
+        return self.gender
 
-	def setLevel(self, level):
-		self.level = level
+    def set_level(self, level):
+        self.level = level
 
-	def getLevel(self):
-		return self.level
+    def get_level(self):
+        return self.level
 
-	def setXp(self, xp):
-		self.xp = xp
+    def set_xp(self, xp):
+        self.xp = xp
 
-	def getXp(self):
-		return self.xp
+    def get_xp(self):
+        return self.xp
 
-	def setStr(self, strength):
-		self.str = strength
+    def set_str(self, strength):
+        self.str = strength
 
-	def getStr(self):
-		return self.str
+    def get_str(self):
+        return self.str
 
-	def setCon(self, con):
-		self.con = con
+    def set_con(self, con):
+        self.con = con
 
-	def getCon(self):
-		return self.con
+    def get_con(self):
+        return self.con
 
-	def setDex(self, dex):
-		self.dex = dex
+    def set_dex(self, dex):
+        self.dex = dex
 
-	def getDex(self):
-		return self.dex
+    def get_dex(self):
+        return self.dex
 
-	def setInt(self, intelligence):
-		self.int = intelligence
+    def set_int(self, intelligence):
+        self.int = intelligence
 
-	def getInt(self):
-		return self.int
+    def get_int(self):
+        return self.int
 
-	def setWis(self, wis):
-		self.wis = wis
+    def set_wis(self, wis):
+        self.wis = wis
 
-	def getWis(self):
-		return self.wis
+    def get_wis(self):
+        return self.wis
 
-	def setCha(self, cha):
-		self.cha = cha
+    def set_cha(self, cha):
+        self.cha = cha
 
-	def getCha(self):
-		return self.cha
+    def get_cha(self):
+        return self.cha
 
-	def setMaxhp(self, maxhp):
-		self.maxhp = maxhp
+    def set_maxhp(self, maxhp):
+        self.maxhp = maxhp
 
-	def getMaxhp(self):
-		return self.maxhp
+    def get_maxhp(self):
+        return self.maxhp
 
-	def setBloodied(self, bloodied):
-		self.bloodied = bloodied
+    def set_bloodied(self, bloodied):
+        self.bloodied = bloodied
 
-	def getBloodied(self):
-		return self.bloodied
+    def get_bloodied(self):
+        return self.bloodied
 
-	def setAc(self, ac):
-		self.ac = ac
+    def set_ac(self, ac):
+        self.ac = ac
 
-	def getAc(self):
-		return self.ac
+    def get_ac(self):
+        return self.ac
 
-	def setGp(self, gp):
-		self.gp = gp
+    def set_gp(self, gp):
+        self.gp = gp
 
-	def getGp(self):
-		return self.gp
-
-
-
-
-
+    def get_gp(self):
+        return self.gp
