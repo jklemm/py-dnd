@@ -90,6 +90,3 @@ class CustomDiceTest(unittest.TestCase):
         result = DiceThrower('3d1000+20').throw()
         self.assertGreaterEqual(result, 23)
         self.assertLessEqual(result, 3020)
-
-if __name__ == '__main__':
-    unittest.main()
