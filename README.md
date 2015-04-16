@@ -1,6 +1,8 @@
 # Dungeons and Dragons 4.0 in Python
 
-[![Codeship Status for meuspedidos/online](https://codeship.com/projects/ab9cf8f0-c6a0-0132-c194-5a19aff8c0c6/status?branch=master)](https://codeship.com/projects/74728)
+[![Codeship Status for jklemm/online](https://codeship.com/projects/ab9cf8f0-c6a0-0132-c194-5a19aff8c0c6/status?branch=master)](https://codeship.com/projects/74728)
+
+[![Coverage Status](https://coveralls.io/repos/jklemm/py-dnd/badge.svg)](https://coveralls.io/r/jklemm/py-dnd)
 
 Dungeons and Dragons 4.0 game implemented in Python.
 My idea begins in a lot of stages, in this order:
