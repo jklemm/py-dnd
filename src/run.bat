@@ -1,1 +1,0 @@
-call python main.py
