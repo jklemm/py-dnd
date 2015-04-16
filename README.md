@@ -1,5 +1,7 @@
 # Dungeons and Dragons 4.0 in Python
 
+[![Codeship Status for meuspedidos/online](https://codeship.com/projects/ab9cf8f0-c6a0-0132-c194-5a19aff8c0c6/status?branch=master)](https://codeship.com/projects/74728)
+
 Dungeons and Dragons 4.0 game implemented in Python.
 My idea begins in a lot of stages, in this order:
 
