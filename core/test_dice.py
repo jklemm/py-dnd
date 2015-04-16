@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import unittest
+from unittest import TestCase
 from core.dice import DiceThrower
 from dice import Dice
 
 
-class DiceTest(unittest.TestCase):
+class DiceTests(TestCase):
 
     def test__one_side_throw(self):
         sides = 1
@@ -30,7 +30,7 @@ class DiceTest(unittest.TestCase):
         return Dice(sides).throw()
 
 
-class NormalThrowDiceTest(unittest.TestCase):
+class NormalThrowDiceTests(TestCase):
 
     def test__d4(self):
         result = DiceThrower('d4').throw()
@@ -58,7 +58,7 @@ class NormalThrowDiceTest(unittest.TestCase):
         self.assertLessEqual(result, 20)
 
 
-class MultipleTimesDiceTest(unittest.TestCase):
+class MultipleTimesDiceTests(TestCase):
 
     def test__2d12(self):
         result = DiceThrower('2d12').throw()
@@ -71,7 +71,7 @@ class MultipleTimesDiceTest(unittest.TestCase):
         self.assertLessEqual(result, 60)
 
 
-class MultipleTimesWithBonusDiceTest(unittest.TestCase):
+class MultipleTimesWithBonusDiceTests(TestCase):
 
     def test__2d20_plus_10(self):
         result = DiceThrower('2d20+10').throw()
@@ -84,7 +84,7 @@ class MultipleTimesWithBonusDiceTest(unittest.TestCase):
         self.assertLessEqual(result, 28)
 
 
-class CustomDiceTest(unittest.TestCase):
+class CustomDiceTests(TestCase):
 
     def test__3d1000_plus_20(self):
         result = DiceThrower('3d1000+20').throw()
