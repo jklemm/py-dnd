@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from unittest import TestCase
-from core.dice import DiceThrower
-from dice import Dice
+from core.dice import Dice, JogadorDeDados
 
 
 class DiceTests(TestCase):
@@ -27,33 +26,33 @@ class DiceTests(TestCase):
         self.assertLessEqual(result, sides)
 
     def _create_and_throw_dice(self, sides):
-        return Dice(sides).throw()
+        return Dice(sides).jogar()
 
 
 class NormalThrowDiceTests(TestCase):
 
     def test__d4(self):
-        result = DiceThrower('d4').throw()
+        result = JogadorDeDados('d4').jogar()
         self.assertGreaterEqual(result, 1)
         self.assertLessEqual(result, 4)
 
     def test__d6(self):
-        result = DiceThrower('d6').throw()
+        result = JogadorDeDados('d6').jogar()
         self.assertGreaterEqual(result, 1)
         self.assertLessEqual(result, 6)
 
     def test__d8(self):
-        result = DiceThrower('d8').throw()
+        result = JogadorDeDados('d8').jogar()
         self.assertGreaterEqual(result, 1)
         self.assertLessEqual(result, 8)
 
     def test__d12(self):
-        result = DiceThrower('d12').throw()
+        result = JogadorDeDados('d12').jogar()
         self.assertGreaterEqual(result, 1)
         self.assertLessEqual(result, 12)
 
     def test__d20(self):
-        result = DiceThrower('d20').throw()
+        result = JogadorDeDados('d20').jogar()
         self.assertGreaterEqual(result, 1)
         self.assertLessEqual(result, 20)
 
@@ -61,12 +60,12 @@ class NormalThrowDiceTests(TestCase):
 class MultipleTimesDiceTests(TestCase):
 
     def test__2d12(self):
-        result = DiceThrower('2d12').throw()
+        result = JogadorDeDados('2d12').jogar()
         self.assertGreaterEqual(result, 2)
         self.assertLessEqual(result, 24)
 
     def test__3d20(self):
-        result = DiceThrower('3d20').throw()
+        result = JogadorDeDados('3d20').jogar()
         self.assertGreaterEqual(result, 3)
         self.assertLessEqual(result, 60)
 
@@ -74,12 +73,12 @@ class MultipleTimesDiceTests(TestCase):
 class MultipleTimesWithBonusDiceTests(TestCase):
 
     def test__2d20_plus_10(self):
-        result = DiceThrower('2d20+10').throw()
+        result = JogadorDeDados('2d20+10').jogar()
         self.assertGreaterEqual(result, 12)
         self.assertLessEqual(result, 50)
 
     def test__3d8_plus_4(self):
-        result = DiceThrower('3d8+4').throw()
+        result = JogadorDeDados('3d8+4').jogar()
         self.assertGreaterEqual(result, 7)
         self.assertLessEqual(result, 28)
 
@@ -87,6 +86,6 @@ class MultipleTimesWithBonusDiceTests(TestCase):
 class CustomDiceTests(TestCase):
 
     def test__3d1000_plus_20(self):
-        result = DiceThrower('3d1000+20').throw()
+        result = JogadorDeDados('3d1000+20').jogar()
         self.assertGreaterEqual(result, 23)
         self.assertLessEqual(result, 3020)
