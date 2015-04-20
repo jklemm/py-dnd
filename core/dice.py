@@ -7,44 +7,47 @@ import re
 
 class Dice():
 
-    def __init__(self, lados=4):
-        self.lados = lados
+    def __init__(self, sides=4):
+        self.sides = self._get_dice_sides(sides)
 
-    def jogar(self):
-        return randint(1, self.lados)
+    def _get_dice_sides(self, sides=None):
+        return sides if sides and sides >= 4 else 4
+
+    def roll(self):
+        return randint(1, self.sides)
 
 
-class JogadorDeDados():
+class DiceRoller():
 
-    def __init__(self, formula_d20):
-        self.dado = None
-        self.vezes = 1
+    def __init__(self, d20_formula):
+        self.dice = None
+        self.times = 1
         self.bonus = 0
-        self.recortar_formula(formula_d20)
+        self.slice_formula(d20_formula)
 
-    def recortar_formula(self, formula):
+    def slice_formula(self, formula):
         regex = re.compile(r'(\d+)*d(\d+)*[+]*(\d+)*')
         result_regex = re.match(regex, formula)
         if result_regex:
             try:
-                self.vezes = int(result_regex.group(1))
+                self.times = int(result_regex.group(1))
             except (TypeError, ValueError):
-                self.vezes = 1
+                self.times = 1
 
             try:
-                lados = int(result_regex.group(1))
+                sides = int(result_regex.group(1))
             except (TypeError, ValueError):
-                self.dado = Dice()
+                self.dice = Dice()
             else:
-                self.dado = Dice(lados)
+                self.dice = Dice(sides)
 
             try:
                 self.bonus = int(result_regex.group(3))
             except (TypeError, ValueError):
                 self.bonus = 0
 
-    def jogar(self):
-        resultado = 0
-        for i in range(0, self.vezes):
-            resultado += self.dado.jogar()
-        return resultado + self.bonus
+    def roll(self):
+        result = 0
+        for i in range(0, self.times):
+            result += self.dice.roll()
+        return result + self.bonus
