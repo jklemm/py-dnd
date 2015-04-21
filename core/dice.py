@@ -30,28 +30,20 @@ class DiceRoller():
         regex = re.compile(r'(\d+)*d(\d+)*[+]*(\d+)*')
         result_regex = re.match(regex, formula)
         if result_regex:
-            self.set_times(result_regex.group(1))
-            self.set_dice_sides(result_regex.group(2))
-            self.set_roll_bonus(result_regex.group(3))
-
-    def set_times(self, times):
-        try:
-            self.times = int(times)
-        except (TypeError, ValueError):
-            pass
-
-    def set_dice_sides(self, number_of_sides):
-        try:
-            sides = int(number_of_sides)
+            times = self.get_integer_value(result_regex, 1)
+            sides = self.get_integer_value(result_regex, 2)
+            bonus = self.get_integer_value(result_regex, 3)
+            self.times = times or 1
             self.dice.set_sides(sides)
-        except (TypeError, ValueError):
-            pass
+            self.bonus = bonus
 
-    def set_roll_bonus(self, bonus):
+    def get_integer_value(self, result_regex, group_index):
+        value = 0
         try:
-            self.bonus = int(bonus)
+            value = int(result_regex.group(group_index))
         except (TypeError, ValueError):
             pass
+        return value
 
     def roll(self):
         result = 0
