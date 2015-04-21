@@ -122,71 +122,56 @@ class RollTheDiceTwiceTests(RollTheDiceTestCase):
         result = self.roll_the_dice_with_formula('2d20')
         self.assertLimits(result, 2, 40)
 
-
-class RollTheDiceThreeTimesTests(RollTheDiceTestCase):
-
-    def test_roll_three_times_a_four_sides_dice(self):
+    def test_roll_three_times_the_dice(self):
         result = self.roll_the_dice_with_formula('3d4')
         self.assertLimits(result, 3, 12)
 
-    def test_roll_three_times_a_six_sides_dice(self):
         result = self.roll_the_dice_with_formula('3d6')
         self.assertLimits(result, 3, 18)
 
-    def test_roll_three_times_an_eight_sides_dice(self):
         result = self.roll_the_dice_with_formula('3d8')
         self.assertLimits(result, 3, 24)
 
-    def test_roll_three_times_a_ten_sides_dice(self):
         result = self.roll_the_dice_with_formula('3d10')
         self.assertLimits(result, 3, 30)
 
-    def test_roll_three_times_a_twelve_sides_dice(self):
         result = self.roll_the_dice_with_formula('3d12')
         self.assertLimits(result, 3, 36)
 
-    def test_roll_three_times_a_twenty_sides_dice(self):
         result = self.roll_the_dice_with_formula('3d20')
         self.assertLimits(result, 3, 60)
 
 
 class RollTheDiceMultipleTimesWithBonusTests(RollTheDiceTestCase):
 
-    def test_roll_2d4_plus_4(self):
+    def test_roll_multiple_times_with_bonus(self):
         result = self.roll_the_dice_with_formula('2d4+4')
         self.assertLimits(result, 6, 12)
 
-    def test_roll_3d6_plus_8(self):
         result = self.roll_the_dice_with_formula('3d6+8')
         self.assertLimits(result, 11, 26)
 
-    def test_roll_4d8_plus_12(self):
         result = self.roll_the_dice_with_formula('4d8+12')
         self.assertLimits(result, 16, 44)
 
-    def test_roll_5d10_plus_16(self):
         result = self.roll_the_dice_with_formula('5d10+16')
         self.assertLimits(result, 17, 66)
 
-    def test_roll_6d12_plus_20(self):
         result = self.roll_the_dice_with_formula('6d12+20')
         self.assertLimits(result, 26, 92)
 
-    def test_roll_7d20_plus_24(self):
         result = self.roll_the_dice_with_formula('7d20+24')
         self.assertLimits(result, 31, 164)
 
 
 class RollTheCustomDiceMultipleTimesWithBonusTests(RollTheDiceTestCase):
 
-    def test_roll_142d271_plus_43(self):
+    def test_roll_custom_dice(self):
         result = self.roll_the_dice_with_formula('142d271+43')
         self.assertLimits(result, 185, 38525)
 
-    def test_roll_20d1000_plus_32(self):
         result = self.roll_the_dice_with_formula('20d1000+32')
         self.assertLimits(result, 52, 20032)
 
-    def test_roll_379d6523_plus_641(self):
         result = self.roll_the_dice_with_formula('379d6523+641')
         self.assertLimits(result, 379, 2472858)
