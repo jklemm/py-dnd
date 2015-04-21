@@ -8,12 +8,11 @@ import re
 class Dice():
 
     def __init__(self, sides=4):
-        self.sides = self._validate_number_of_sides(sides)
+        self.sides = 4
 
-    def _validate_number_of_sides(self, sides):
-        if sides is not None and sides >= 4:
-            return sides
-        return 4
+    def set_sides(self, sides):
+        if sides is not None and sides > 4:
+            self.sides = sides
 
     def roll(self):
         return randint(1, self.sides)
@@ -22,7 +21,7 @@ class Dice():
 class DiceRoller():
 
     def __init__(self, d20_formula):
-        self.dice = None
+        self.dice = Dice()
         self.times = 1
         self.bonus = 0
         self.slice_formula(d20_formula)
@@ -31,22 +30,28 @@ class DiceRoller():
         regex = re.compile(r'(\d+)*d(\d+)*[+]*(\d+)*')
         result_regex = re.match(regex, formula)
         if result_regex:
-            try:
-                self.times = int(result_regex.group(1))
-            except (TypeError, ValueError):
-                self.times = 1
+            self.set_times(result_regex.group(1))
+            self.set_dice_sides(result_regex.group(2))
+            self.set_roll_bonus(result_regex.group(3))
 
-            try:
-                sides = int(result_regex.group(1))
-            except (TypeError, ValueError):
-                self.dice = Dice()
-            else:
-                self.dice = Dice(sides)
+    def set_times(self, times):
+        try:
+            self.times = int(times)
+        except (TypeError, ValueError):
+            pass
 
-            try:
-                self.bonus = int(result_regex.group(3))
-            except (TypeError, ValueError):
-                self.bonus = 0
+    def set_dice_sides(self, number_of_sides):
+        try:
+            sides = int(number_of_sides)
+            self.dice.set_sides(sides)
+        except (TypeError, ValueError):
+            pass
+
+    def set_roll_bonus(self, bonus):
+        try:
+            self.bonus = int(bonus)
+        except (TypeError, ValueError):
+            pass
 
     def roll(self):
         result = 0
