@@ -8,10 +8,12 @@ import re
 class Dice():
 
     def __init__(self, sides=4):
-        self.sides = self._get_dice_sides(sides)
+        self.sides = self._validate_number_of_sides(sides)
 
-    def _get_dice_sides(self, sides=None):
-        return sides if sides and sides >= 4 else 4
+    def _validate_number_of_sides(self, sides):
+        if sides is not None and sides >= 4:
+            return sides
+        return 4
 
     def roll(self):
         return randint(1, self.sides)
