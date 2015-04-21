@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from core.default_race_gateway import DefaultRaceGateway
+from core.gateways.default_race_gateway import DefaultRaceGateway
 
 
 class CreateCharacterUsecase():

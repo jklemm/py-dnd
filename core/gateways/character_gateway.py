@@ -1,6 +1,6 @@
 #!/usr/bin/python
-from core.ability_score_struct import AbilityScoreStruct
-from core.character_struct import CharacterStruct
+from core.structs.ability_score_struct import AbilityScoreStruct
+from core.structs.character_struct import CharacterStruct
 
 
 class CharacterGateway(object):

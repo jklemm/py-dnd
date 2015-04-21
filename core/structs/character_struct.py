@@ -1,6 +1,6 @@
 #!/usr/bin/python
-from core.ability_score_struct import AbilityScoreStruct
-from core.race_struct import RaceStruct
+from core.structs.ability_score_struct import AbilityScoreStruct
+from core.structs.race_struct import RaceStruct
 
 
 class CharacterStruct(object):

@@ -1,10 +1,11 @@
 #!/usr/bin/python
 
 import unittest
-from core.character_struct import CharacterStruct
-from core.create_character_usecase import CreateCharacterUsecase
-from core.character_gateway import CharacterGateway
-from core.default_race_gateway import DefaultRaceGateway
+
+from core.structs.character_struct import CharacterStruct
+from core.usecases.create_character_usecase import CreateCharacterUsecase
+from core.gateways.character_gateway import CharacterGateway
+from core.gateways.default_race_gateway import DefaultRaceGateway
 
 
 class CreateCharacterUsecaseTests(unittest.TestCase):
