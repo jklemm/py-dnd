@@ -4,7 +4,7 @@ import unittest
 from core.character_struct import CharacterStruct
 from core.create_character_usecase import CreateCharacterUsecase
 from core.character_gateway import CharacterGateway
-from core.race_elf_gateway import ElfRaceGateway
+from core.default_race_gateway import DefaultRaceGateway
 
 
 class CreateCharacterUsecaseTests(unittest.TestCase):
@@ -13,25 +13,30 @@ class CreateCharacterUsecaseTests(unittest.TestCase):
         self.character_gateway = CharacterGateway()
 
     def test_create_empty_character(self):
-        race_gateway = RaceGatewayFake()
-        character = CreateCharacterUsecase(self.character_gateway, race_gateway).execute()
+        character = CreateCharacterUsecase(self.character_gateway).execute()
 
         self.assertIsNotNone(character)
         self.assertIsInstance(character, CharacterStruct)
+        self.assertEquals(character.strength, 0)
+        self.assertEquals(character.constitution, 0)
+        self.assertEquals(character.dexterity, 0)
+        self.assertEquals(character.intelligence, 0)
+        self.assertEquals(character.wisdom, 0)
+        self.assertEquals(character.charisma, 0)
 
-    def test_create_character_with_ability_scores(self):
-        race_gateway = RaceGatewayFake()
-        character = CreateCharacterUsecase(self.character_gateway, race_gateway).execute()
+    def test_create_character_with_base_ability_score(self):
+        self.character_gateway.set_base_ability_score(10, 10, 10, 10, 10, 10)
+        character = CreateCharacterUsecase(self.character_gateway).execute()
 
-        self.assertTrue(hasattr(character, 'strength'))
-        self.assertTrue(hasattr(character, 'constitution'))
-        self.assertTrue(hasattr(character, 'dexterity'))
-        self.assertTrue(hasattr(character, 'intelligence'))
-        self.assertTrue(hasattr(character, 'wisdom'))
-        self.assertTrue(hasattr(character, 'charisma'))
+        self.assertEquals(character.strength, 10)
+        self.assertEquals(character.constitution, 10)
+        self.assertEquals(character.dexterity, 10)
+        self.assertEquals(character.intelligence, 10)
+        self.assertEquals(character.wisdom, 10)
+        self.assertEquals(character.charisma, 10)
 
-    def test_create_character_with_no_race(self):
-        race_gateway = None
+    def test_create_default_race_character(self):
+        race_gateway = DefaultRaceGateway()
         character = CreateCharacterUsecase(self.character_gateway, race_gateway).execute()
 
         self.assertEquals(character.strength, 0)
@@ -41,19 +46,27 @@ class CreateCharacterUsecaseTests(unittest.TestCase):
         self.assertEquals(character.wisdom, 0)
         self.assertEquals(character.charisma, 0)
 
-    def test_create_elf_race_character(self):
-        race_gateway = ElfRaceGateway()
+    def test_create_default_ability_score_race_character(self):
+        race_gateway = DefaultRaceGateway()
+        race_gateway.set_ability_score(10, 10, 10, 10, 10, 10)
         character = CreateCharacterUsecase(self.character_gateway, race_gateway).execute()
 
-        self.assertEquals(character.strength, 0)
-        self.assertEquals(character.constitution, 0)
-        self.assertEquals(character.dexterity, 2)
-        self.assertEquals(character.intelligence, 0)
-        self.assertEquals(character.wisdom, 2)
-        self.assertEquals(character.charisma, 0)
+        self.assertEquals(character.strength, 10)
+        self.assertEquals(character.constitution, 10)
+        self.assertEquals(character.dexterity, 10)
+        self.assertEquals(character.intelligence, 10)
+        self.assertEquals(character.wisdom, 10)
+        self.assertEquals(character.charisma, 10)
 
+    def test_create_default_ability_score_race_character_with_base_ability_score(self):
+        self.character_gateway.set_base_ability_score(10, 10, 10, 10, 10, 10)
+        race_gateway = DefaultRaceGateway()
+        race_gateway.set_ability_score(10, 10, 10, 10, 10, 10)
+        character = CreateCharacterUsecase(self.character_gateway, race_gateway).execute()
 
-class RaceGatewayFake(object):
-
-    def get_bonus_ability_score_struct(self):
-        return None
+        self.assertEquals(character.strength, 20)
+        self.assertEquals(character.constitution, 20)
+        self.assertEquals(character.dexterity, 20)
+        self.assertEquals(character.intelligence, 20)
+        self.assertEquals(character.wisdom, 20)
+        self.assertEquals(character.charisma, 20)
