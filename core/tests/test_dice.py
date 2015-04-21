@@ -121,7 +121,7 @@ class RollTheDiceTwiceTests(RollTheDiceTestCase):
     def test_roll_twice_an_eight_sides_dice(self):
         result = self.roll_the_dice('2d8')
         self.assertGreaterEqual(result, 2)
-        self.assertLessEqual(result, 12)
+        self.assertLessEqual(result, 16)
 
     def test_roll_twice_a_ten_sides_dice(self):
         result = self.roll_the_dice('2d10')
