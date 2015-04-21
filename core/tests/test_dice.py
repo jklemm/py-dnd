@@ -32,7 +32,7 @@ class DiceSidesTests(TestCase):
 
 class RollTheDiceTestCase(TestCase):
 
-    def roll_the_dice_with_sides(self, sides=''):
+    def roll_the_dice_with_sides(self, sides):
         return Dice(sides).roll()
 
     def roll_the_dice_with_formula(self, formula):
@@ -46,7 +46,7 @@ class RollTheDiceTestCase(TestCase):
 class RollSimpleDiceTests(RollTheDiceTestCase):
 
     def test_roll_a_dice_with_default_sides(self):
-        result = self.roll_the_dice_with_sides()
+        result = Dice().roll()
         self.assertLimits(result, 1, 4)
 
     def test_roll_a_dice_with_none_side(self):
