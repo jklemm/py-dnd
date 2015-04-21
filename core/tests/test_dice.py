@@ -103,27 +103,22 @@ class RollTheNormalDiceTests(RollTheDiceTestCase):
 
 class RollTheDiceTwiceTests(RollTheDiceTestCase):
 
-    def test_roll_twice_a_four_sides_dice(self):
+    def test_roll_twice_the_dice(self):
         result = self.roll_the_dice_with_formula('2d4')
         self.assertLimits(result, 2, 8)
 
-    def test_roll_twice_a_six_sides_dice(self):
         result = self.roll_the_dice_with_formula('2d6')
         self.assertLimits(result, 2, 12)
 
-    def test_roll_twice_an_eight_sides_dice(self):
         result = self.roll_the_dice_with_formula('2d8')
         self.assertLimits(result, 2, 16)
 
-    def test_roll_twice_a_ten_sides_dice(self):
         result = self.roll_the_dice_with_formula('2d10')
         self.assertLimits(result, 2, 20)
 
-    def test_roll_twice_a_twelve_sides_dice(self):
         result = self.roll_the_dice_with_formula('2d12')
         self.assertLimits(result, 2, 24)
 
-    def test_roll_twice_a_twenty_sides_dice(self):
         result = self.roll_the_dice_with_formula('2d20')
         self.assertLimits(result, 2, 40)
 
