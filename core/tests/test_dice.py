@@ -4,25 +4,22 @@ from unittest import TestCase
 from core.dice import Dice, DiceRoller
 
 
-class DiceTests(TestCase):
-
-    def setUp(self):
-        self.dice = Dice()
+class DiceSidesTests(TestCase):
 
     def test_dice_with_default_side(self):
-        self.assertEquals(self.dice._get_dice_sides(), 4)
+        self.assertEquals(Dice().sides, 4)
 
     def test_dice_with_none_sides(self):
-        self.assertEquals(self.dice._get_dice_sides(None), 4)
+        self.assertEquals(Dice(None).sides, 4)
 
     def test_dice_with_two_sides(self):
-        self.assertEquals(self.dice._get_dice_sides(2), 4)
+        self.assertEquals(Dice(2).sides, 4)
 
     def test_dice_with_four_sides(self):
-        self.assertEquals(self.dice._get_dice_sides(4), 4)
+        self.assertEquals(Dice(4).sides, 4)
 
     def test_dice_with_twelve_sides(self):
-        self.assertEquals(self.dice._get_dice_sides(12), 12)
+        self.assertEquals(Dice(12).sides, 12)
 
 
 class RollSimpleDiceTests(TestCase):
@@ -108,7 +105,7 @@ class RollTheDiceTwiceTests(TestCase):
         self.assertGreaterEqual(result, 2)
         self.assertLessEqual(result, 12)
 
-    def test_roll_twice_a_eight_sides_dice(self):
+    def test_roll_twice_an_eight_sides_dice(self):
         result = DiceRoller('2d8').roll()
         self.assertGreaterEqual(result, 2)
         self.assertLessEqual(result, 12)
@@ -141,7 +138,7 @@ class RollTheDiceThreeTimesTests(TestCase):
         self.assertGreaterEqual(result, 3)
         self.assertLessEqual(result, 18)
 
-    def test_roll_three_times_a_eight_sides_dice(self):
+    def test_roll_three_times_an_eight_sides_dice(self):
         result = DiceRoller('3d8').roll()
         self.assertGreaterEqual(result, 3)
         self.assertLessEqual(result, 24)
@@ -197,7 +194,17 @@ class RollTheDiceMultipleTimesWithBonusTests(TestCase):
 
 class RollTheCustomDiceMultipleTimesWithBonusTests(TestCase):
 
+    def test_roll_142d271_plus_43(self):
+        result = DiceRoller('142d271+43').roll()
+        self.assertGreaterEqual(result, 185)
+        self.assertLessEqual(result, 38525)
+
     def test_roll_20d1000_plus_32(self):
         result = DiceRoller('20d1000+32').roll()
         self.assertGreaterEqual(result, 52)
         self.assertLessEqual(result, 20032)
+
+    def test_roll_379d6523_plus_641(self):
+        result = DiceRoller('379d6523+641').roll()
+        self.assertGreaterEqual(result, 379)
+        self.assertLessEqual(result, 2472858)
