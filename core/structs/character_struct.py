@@ -11,36 +11,24 @@ class CharacterStruct(object):
 
     @property
     def strength(self):
-        base_strength = self.ability_score.strength
-        race_strength = self.race.ability_score.strength
-        return base_strength + race_strength
+        return self.ability_score.strength + self.race.ability_score.strength
 
     @property
     def constitution(self):
-        base_constitution = self.ability_score.constitution
-        race_constitution = self.race.ability_score.constitution
-        return base_constitution + race_constitution
+        return self.ability_score.constitution + self.race.ability_score.constitution
 
     @property
     def dexterity(self):
-        base_dexterity = self.ability_score.dexterity
-        race_dexterity = self.race.ability_score.dexterity
-        return base_dexterity + race_dexterity
+        return self.ability_score.dexterity + self.race.ability_score.dexterity
 
     @property
     def intelligence(self):
-        base_intelligence = self.ability_score.intelligence
-        race_intelligence = self.race.ability_score.intelligence
-        return base_intelligence + race_intelligence
+        return self.ability_score.intelligence + self.race.ability_score.intelligence
 
     @property
     def wisdom(self):
-        base_wisdom = self.ability_score.wisdom
-        race_wisdom = self.race.ability_score.wisdom
-        return base_wisdom + race_wisdom
+        return self.ability_score.wisdom + self.race.ability_score.wisdom
 
     @property
     def charisma(self):
-        base_charisma = self.ability_score.charisma
-        race_charisma = self.race.ability_score.charisma
-        return base_charisma + race_charisma
+        return self.ability_score.charisma + self.race.ability_score.charisma
