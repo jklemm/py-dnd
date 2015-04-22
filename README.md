@@ -29,6 +29,3 @@ All Dungeons and Dragons rights to [Wizards of the Coast](http://www.wizards.com
 [Python Official Website](https://www.python.org/)
 
 [A beginners introduction into Python](http://www.afterhoursprogramming.com/tutorial/Python/Introduction/)
-
-## Other
-Thanks for your time and attention!
