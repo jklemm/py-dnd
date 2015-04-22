@@ -1,7 +1,5 @@
 #!/usr/bin/python
-
 from unittest import TestCase
-
 from core.utils.dice import Dice, DiceRoller
 
 
@@ -42,65 +40,42 @@ class RollTheDiceTestCase(TestCase):
         self.assertGreaterEqual(value, minimum)
         self.assertLessEqual(value, maximum)
 
-    def verify_dice_result_rolls(self, tests):
-        for (formula, minimum, maximum) in tests:
+    def assertSideDiceResults(self, test_list):
+        for sides in test_list:
+            result = self.roll_the_dice_with_sides(sides)
+            self.assertLimits(result, 1, sides)
+
+    def assertFormulaDiceResults(self, test_list, minimum_result):
+        for (formula, maximum_result) in test_list:
             result = self.roll_the_dice_with_formula(formula)
-            self.assertLimits(result, minimum, maximum)
+            self.assertLimits(result, minimum_result, maximum_result)
 
 
 class RollSimpleDiceTests(RollTheDiceTestCase):
 
-    def test_roll_a_dice_with_default_sides(self):
-        result = Dice().roll()
-        self.assertLimits(result, 1, 4)
-
-    def test_roll_a_dice_with_none_side(self):
-        result = self.roll_the_dice_with_sides(None)
-        self.assertLimits(result, 1, 4)
-
-    def test_roll_a_dice_with_four_sides(self):
-        result = self.roll_the_dice_with_sides(4)
-        self.assertLimits(result, 1, 4)
-
-    def test_roll_a_dice_with_six_sides(self):
-        result = self.roll_the_dice_with_sides(6)
-        self.assertLimits(result, 1, 6)
-
-    def test_roll_a_dice_with_eight_sides(self):
-        result = self.roll_the_dice_with_sides(8)
-        self.assertLimits(result, 1, 8)
-
-    def test_roll_a_dice_with_ten_sides(self):
-        result = self.roll_the_dice_with_sides(10)
-        self.assertLimits(result, 1, 10)
-
-    def test_roll_a_dice_with_twelve_sides(self):
-        result = self.roll_the_dice_with_sides(12)
-        self.assertLimits(result, 1, 12)
-
-    def test_roll_a_dice_with_twenty_sides(self):
-        result = self.roll_the_dice_with_sides(20)
-        self.assertLimits(result, 1, 20)
+    def test_roll_a_dice_with_d20_sides(self):
+        tests = (4, 6, 8, 12, 20)
+        self.assertSideDiceResults(tests)
 
 
-class RollTheDiceTests(RollTheDiceTestCase):
+class RollComplexDiceTests(RollTheDiceTestCase):
 
     def test_roll_normal_dices(self):
-        tests = (('d4', 1, 4), ('d6', 1, 6), ('d8', 1, 8), ('d12', 1, 12), ('d20', 1, 20))
-        self.verify_dice_result_rolls(tests)
+        tests = (('d4', 4), ('d6', 6), ('d8', 8), ('d12', 12), ('d20', 20))
+        self.assertFormulaDiceResults(tests, 1)
 
     def test_roll_twice_the_dice(self):
-        tests = (('2d4', 2, 8), ('2d6', 2, 12), ('2d8', 2, 16), ('2d10', 2, 20), ('2d12', 2, 24), ('2d20', 2, 40))
-        self.verify_dice_result_rolls(tests)
+        tests = (('2d4', 8), ('2d6', 12), ('2d8', 16), ('2d10', 20), ('2d12', 24), ('2d20', 40))
+        self.assertFormulaDiceResults(tests, 2)
 
     def test_roll_three_times_the_dice(self):
-        tests = (('3d4', 3, 12), ('3d6', 3, 18), ('3d8', 3, 24), ('3d10', 3, 30), ('3d12', 3, 36), ('3d20', 3, 60))
-        self.verify_dice_result_rolls(tests)
+        tests = (('3d4', 12), ('3d6', 18), ('3d8', 24), ('3d10', 30), ('3d12', 36), ('3d20', 60))
+        self.assertFormulaDiceResults(tests, 3)
 
-    def test_roll_multiple_times_with_bonus(self):
-        tests = (('2d4+4', 6, 12), ('3d6+8', 11, 26), ('4d8+12', 16, 44), ('5d10+16', 21, 66), ('6d12+20', 26, 92))
-        self.verify_dice_result_rolls(tests)
+    def test_roll_four_times_with_bonus(self):
+        tests = (('4d4+4', 20), ('4d6+4', 28), ('4d8+4', 36), ('4d10+4', 44), ('4d12+4', 52))
+        self.assertFormulaDiceResults(tests, 8)
 
     def test_roll_custom_dice(self):
-        tests = (('142d271+43', 185, 38525), ('20d1000+32', 52, 20032), ('379d6523+641', 379, 2472858))
-        self.verify_dice_result_rolls(tests)
+        tests = (('10d30+20', 320), ('10d40+20', 420), ('10d50+20', 520), ('10d60+20', 620))
+        self.assertFormulaDiceResults(tests, 30)
