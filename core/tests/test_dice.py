@@ -1,6 +1,5 @@
-#!/usr/bin/python
 from unittest import TestCase
-from core.utils.dice import Dice, DiceRoller
+from core.utils import Dice, DiceRoller
 
 
 class DiceSidesTests(TestCase):

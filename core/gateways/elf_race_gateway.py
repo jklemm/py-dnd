@@ -1,4 +1,4 @@
-from core.gateways.default_race_gateway import DefaultRaceGateway
+from core.gateways import DefaultRaceGateway
 
 
 class ElfRaceGateway(DefaultRaceGateway):
