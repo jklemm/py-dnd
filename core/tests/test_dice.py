@@ -30,52 +30,73 @@ class DiceSidesTests(TestCase):
 
 class RollTheDiceTestCase(TestCase):
 
-    def roll_the_dice_with_sides(self, sides):
+    def roll_the_dice(self, sides):
         return Dice(sides).roll()
 
-    def roll_the_dice_with_formula(self, formula):
+    def dice_roller_roll_the_dice(self, formula):
         return DiceRoller(formula).roll()
 
     def assertLimits(self, value, minimum, maximum):
         self.assertGreaterEqual(value, minimum)
         self.assertLessEqual(value, maximum)
 
-    def assertSideDiceResults(self, test_list):
-        for sides in test_list:
-            result = self.roll_the_dice_with_sides(sides)
-            self.assertLimits(result, 1, sides)
+    def assertSideDiceResults(self, sides):
+        result = self.roll_the_dice(sides)
+        self.assertLimits(result, 1, sides)
 
-    def assertFormulaDiceResults(self, test_list, minimum_result):
-        for (formula, maximum_result) in test_list:
-            result = self.roll_the_dice_with_formula(formula)
-            self.assertLimits(result, minimum_result, maximum_result)
+    def assertFormulaDiceResults(self, formula, minimum_result, maximum_result):
+        result = self.dice_roller_roll_the_dice(formula)
+        self.assertLimits(result, minimum_result, maximum_result)
 
 
 class RollSimpleDiceTests(RollTheDiceTestCase):
 
     def test_roll_a_dice_with_d20_sides(self):
-        tests = (4, 6, 8, 12, 20)
-        self.assertSideDiceResults(tests)
+        self.assertSideDiceResults(4)
+        self.assertSideDiceResults(6)
+        self.assertSideDiceResults(8)
+        self.assertSideDiceResults(10)
+        self.assertSideDiceResults(12)
+        self.assertSideDiceResults(20)
 
 
 class RollComplexDiceTests(RollTheDiceTestCase):
 
     def test_roll_normal_dices(self):
-        tests = (('d4', 4), ('d6', 6), ('d8', 8), ('d12', 12), ('d20', 20))
-        self.assertFormulaDiceResults(tests, 1)
+        self.assertFormulaDiceResults('d4', 1, 4)
+        self.assertFormulaDiceResults('d6', 1, 6)
+        self.assertFormulaDiceResults('d8', 1, 8)
+        self.assertFormulaDiceResults('d12', 1, 12)
+        self.assertFormulaDiceResults('d20', 1, 20)
 
     def test_roll_twice_the_dice(self):
-        tests = (('2d4', 8), ('2d6', 12), ('2d8', 16), ('2d10', 20), ('2d12', 24), ('2d20', 40))
-        self.assertFormulaDiceResults(tests, 2)
+        self.assertFormulaDiceResults('2d4', 2, 8)
+        self.assertFormulaDiceResults('2d6', 2, 12)
+        self.assertFormulaDiceResults('2d8', 2, 16)
+        self.assertFormulaDiceResults('2d10', 2, 20)
+        self.assertFormulaDiceResults('2d12', 2, 24)
+        self.assertFormulaDiceResults('2d20', 2, 40)
 
     def test_roll_three_times_the_dice(self):
-        tests = (('3d4', 12), ('3d6', 18), ('3d8', 24), ('3d10', 30), ('3d12', 36), ('3d20', 60))
-        self.assertFormulaDiceResults(tests, 3)
+        self.assertFormulaDiceResults('3d4', 3, 12)
+        self.assertFormulaDiceResults('3d6', 3, 18)
+        self.assertFormulaDiceResults('3d8', 3, 24)
+        self.assertFormulaDiceResults('3d10', 3, 30)
+        self.assertFormulaDiceResults('3d12', 3, 36)
+        self.assertFormulaDiceResults('3d20', 3, 60)
 
     def test_roll_four_times_with_bonus(self):
-        tests = (('4d4+4', 20), ('4d6+4', 28), ('4d8+4', 36), ('4d10+4', 44), ('4d12+4', 52))
-        self.assertFormulaDiceResults(tests, 8)
+        self.assertFormulaDiceResults('4d4+4', 8, 20)
+        self.assertFormulaDiceResults('4d6+4', 8, 28)
+        self.assertFormulaDiceResults('4d8+4', 8, 36)
+        self.assertFormulaDiceResults('4d10+4', 8, 44)
+        self.assertFormulaDiceResults('4d12+4', 8, 52)
+        self.assertFormulaDiceResults('4d20+4', 8, 84)
 
     def test_roll_custom_dice(self):
-        tests = (('10d30+20', 320), ('10d40+20', 420), ('10d50+20', 520), ('10d60+20', 620))
-        self.assertFormulaDiceResults(tests, 30)
+        self.assertFormulaDiceResults('10d10+20', 30, 120)
+        self.assertFormulaDiceResults('10d20+20', 30, 220)
+        self.assertFormulaDiceResults('10d30+20', 30, 320)
+        self.assertFormulaDiceResults('10d40+20', 30, 420)
+        self.assertFormulaDiceResults('10d50+20', 30, 520)
+        self.assertFormulaDiceResults('10d60+20', 30, 620)
