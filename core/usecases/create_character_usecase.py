@@ -1,13 +1,13 @@
 #!/usr/bin/python
-from core.gateways.default_race_gateway import DefaultRaceGateway
+from core.entities.default_race_entity import DefaultRaceEntity
 
 
 class CreateCharacterUsecase():
 
-    def __init__(self, character_gateway, race_gateway=None):
+    def __init__(self, character_gateway, race_entity=None):
         self.character_gateway = character_gateway
-        self.race_gateway = race_gateway or DefaultRaceGateway()
+        self.race_entity = race_entity or DefaultRaceEntity()
 
     def execute(self):
-        self.character_gateway.race_gateway = self.race_gateway
+        self.character_gateway.race_entity = self.race_entity
         return self.character_gateway.create_character()
