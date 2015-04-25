@@ -1,0 +1,60 @@
+
+class CharacterRaceList(object):
+    DEVA = 'DEVA'
+    DRAGONBORN = 'DRAGONBORN'
+    DWARF = 'DWARF'
+    ELADRIN = 'ELADRIN'
+    ELF = 'ELF'
+    GITHZERAI = 'GITHZERAI'
+    GNOME = 'GNOME'
+    GOLIATH = 'GOLIATH'
+    HALFELF = 'HALFELF'
+    HALFLING = 'HALFLING'
+    HALFORC = 'HALFORC'
+    HUMAN = 'HUMAN'
+    MINOTAUR = 'MINOTAUR'
+    SHARDMIND = 'SHARDMIND'
+    SHIFTER = 'SHIFTER'
+    TIEFLING = 'TIEFLING'
+    WILDEN = 'WILDEN'
+
+
+class CharacterClassList(object):
+    ARDENT = 'ARDENT'
+    AVENGER = 'AVENGER'
+    BARBARIAN = 'BARBARIAN'
+    BARD = 'BARD'
+    BATTLEMIND = 'BATTLEMIND'
+    CLERIC = 'CLERIC'
+    DRUID = 'DRUID'
+    FIGHTER = 'FIGHTER'
+    INVOKER = 'INVOKER'
+    MONK = 'MONK'
+    PALADIN = 'PALADIN'
+    PSION = 'PSION'
+    RANGER = 'RANGER'
+    ROGUE = 'ROGUE'
+    RUNEPRIEST = 'RUNEPRIEST'
+    SEEKER = 'SEEKER'
+    SHAMAN = 'SHAMAN'
+    SORCERER = 'SORCERER'
+    WARDEN = 'WARDEN'
+    WARLOCK = 'WARLOCK'
+    WARLORD = 'WARLORD'
+    WIZARD = 'WIZARD'
+
+
+class CharacterRoleList(object):
+    CONTROLLER = 'CONTROLLER'
+    DEFENDER = 'DEFENDER'
+    LEADER = 'LEADER'
+    STRIKER = 'STRIKER'
+
+
+class AlignmentList(object):
+    GOOD = 'GOOD'
+    LAWFUL_GOOD = 'LAWFUL_GOOD'
+    UNALIGNED = 'UNALIGNED'
+    EVIL = 'EVIL'
+    CHAOTIC_EVIL = 'CHAOTIC_EVIL'
+
