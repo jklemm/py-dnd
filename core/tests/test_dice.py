@@ -8,23 +8,23 @@ class DiceSidesTests(TestCase):
         self.dice = Dice()
 
     def test_dice_with_default_side(self):
-        self.assertEquals(self.dice.sides, 4)
+        self.assertEqual(self.dice.sides, 4)
 
     def test_dice_with_none_sides(self):
         self.dice.set_sides(None)
-        self.assertEquals(self.dice.sides, 4)
+        self.assertEqual(self.dice.sides, 4)
 
     def test_dice_with_two_sides(self):
         self.dice.set_sides(2)
-        self.assertEquals(self.dice.sides, 4)
+        self.assertEqual(self.dice.sides, 4)
 
     def test_dice_with_four_sides(self):
         self.dice.set_sides(4)
-        self.assertEquals(self.dice.sides, 4)
+        self.assertEqual(self.dice.sides, 4)
 
     def test_dice_with_six_sides(self):
         self.dice.set_sides(6)
-        self.assertEquals(self.dice.sides, 6)
+        self.assertEqual(self.dice.sides, 6)
 
 
 class RollTheDiceTestCase(TestCase):

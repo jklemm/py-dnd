@@ -1,14 +1,11 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 from random import randint
 import re
 
 
-class Dice():
+class Dice(object):
 
     def __init__(self, sides=4):
-        self.sides = 4
+        self.sides = sides
 
     def set_sides(self, sides):
         if sides is not None and sides > 4:
@@ -18,7 +15,7 @@ class Dice():
         return randint(1, self.sides)
 
 
-class DiceRoller():
+class DiceRoller(object):
 
     def __init__(self, d20_formula):
         self.dice = Dice()
