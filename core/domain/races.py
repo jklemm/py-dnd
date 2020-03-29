@@ -1,3 +1,20 @@
+from enum import unique, IntEnum
+
+
+@unique
+class RaceEnum(IntEnum):
+    DWARF = 1
+    HALFLING = 2
+
+
+def get_race(race):
+    races = {
+        RaceEnum.DWARF: Dwarf(),
+        RaceEnum.HALFLING: Halfling(),
+    }
+    return races.get(race)
+
+
 class Dwarf(object):
     aditional_strength = 2
     aditional_constitution = 2
