@@ -1,8 +1,6 @@
-from math import floor
+from math import floor, ceil
 
 import attr
-
-from core.utils.dotted_dict import DottedDict
 
 
 class Race(object):
@@ -41,13 +39,29 @@ class Halfling(Race):
         return "Halfling"
 
 
-# classes
-default_klass = DottedDict(
-    base_hp=0
-)
-barbarian = DottedDict(
-    base_hp=12
-)
+class Klass(object):
+    health_dice = 0
+    base_hp = 0
+
+    def __str__(self):
+        return "Klass"
+
+
+class Barbarian(Klass):
+    health_dice = 12
+    base_hp = 12
+
+    def __str__(self):
+        return "Barbarian"
+
+
+class Bard(Klass):
+    health_dice = 8
+    base_hp = 8
+
+    def __str__(self):
+        return "Bard"
+
 
 XP_TO_LEVEL_LIST = [
     300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000
@@ -58,10 +72,10 @@ XP_TO_LEVEL_LIST = [
 class Character(object):
     # basic
     name = attr.ib(validator=attr.validators.instance_of(str))
+    race = attr.ib(validator=attr.validators.instance_of((Dwarf, Halfling)))
+    klass = attr.ib(validator=attr.validators.instance_of((Barbarian, Bard)))
     xp = attr.ib(validator=attr.validators.instance_of(int), default=0)
     hp = attr.ib(validator=attr.validators.instance_of(int), default=1)
-    race = attr.ib(default=Race())
-    klass = attr.ib(default=default_klass)
 
     # ability values
     base_strength = attr.ib(validator=attr.validators.instance_of(int), default=10)
@@ -70,6 +84,15 @@ class Character(object):
     base_intelligence = attr.ib(validator=attr.validators.instance_of(int), default=10)
     base_wisdom = attr.ib(validator=attr.validators.instance_of(int), default=10)
     base_charisma = attr.ib(validator=attr.validators.instance_of(int), default=10)
+
+    def __str__(self):
+        msg = "Name: {}\n".format(c.name)
+        msg += "Race: {}\n".format(c.race)
+        msg += "Class: {}\n".format(c.klass)
+        msg += "Level: {}\n".format(c.level)
+        msg += "XP: {}\n".format(c.xp)
+        msg += "HP: {} / {}\n".format(c.hp, c.maximum_hp)
+        return msg
 
     @property
     def maximum_hp(self):
@@ -80,6 +103,10 @@ class Character(object):
         for index, xp_to_level in enumerate(XP_TO_LEVEL_LIST, start=1):
             if self.xp < xp_to_level:
                 return index
+
+    @property
+    def proficiency_bonus(self):
+        return ceil(self.level / 4) + 1
 
     @property
     def strength(self):
@@ -131,20 +158,12 @@ class Character(object):
 
 
 def create_character():
-    c = Character(name='Bruenor')
-    c.race = Halfling()
-    c.klass = barbarian
-    c.hp = c.klass.base_hp + c.constitution_modifier
+    c = Character(name='Bruenor', race=Halfling(), klass=Barbarian())
+    c.hp = c.maximum_hp
     return c
 
 
 if __name__ == '__main__':
     c = create_character()
 
-    print('name: ', c.name)
-    print('race: ', c.race)
-    print('klass: ', c.klass)
-    print('level: ', c.level)
-    print('xp: ', c.xp)
-    print('hp: ', c.hp)
-    print('maximum_hp: ', c.maximum_hp)
+    print(c)
