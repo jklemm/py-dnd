@@ -27,6 +27,8 @@ class Character(object):
     base_wisdom = attr.ib(validator=attr.validators.instance_of(int), default=10)
     base_charisma = attr.ib(validator=attr.validators.instance_of(int), default=10)
 
+    base_armor_class = attr.ib(validator=attr.validators.instance_of(int), default=10)
+
     def __str__(self):
         msg = "Name: {}\n".format(c.name)
         msg += "Race: {}\n".format(c.race)
@@ -39,6 +41,10 @@ class Character(object):
     @property
     def maximum_hp(self):
         return self.klass.base_hp + self.constitution_modifier
+
+    @property
+    def armor_class(self):
+        return self.base_armor_class + self.dexterity_modifier
 
     @property
     def level(self):
