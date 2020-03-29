@@ -2,31 +2,8 @@ from math import floor, ceil
 
 import attr
 
+from core.domain.klasses import Barbarian, Bard
 from core.domain.races import Dwarf, Halfling
-
-
-class Klass(object):
-    health_dice = 0
-    base_hp = 0
-
-    def __str__(self):
-        return "Klass"
-
-
-class Barbarian(Klass):
-    health_dice = 12
-    base_hp = 12
-
-    def __str__(self):
-        return "Barbarian"
-
-
-class Bard(Klass):
-    health_dice = 8
-    base_hp = 8
-
-    def __str__(self):
-        return "Bard"
 
 
 XP_TO_LEVEL_LIST = [
