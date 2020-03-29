@@ -7,12 +7,13 @@ class RaceEnum(IntEnum):
     HALFLING = 2
 
 
-def get_race(race):
+def get_race(race: RaceEnum):
     races = {
-        RaceEnum.DWARF: Dwarf(),
-        RaceEnum.HALFLING: Halfling(),
+        RaceEnum.DWARF: Dwarf,
+        RaceEnum.HALFLING: Halfling,
     }
-    return races.get(race)
+    selected_race = races.get(race)
+    return selected_race()
 
 
 class Dwarf(object):

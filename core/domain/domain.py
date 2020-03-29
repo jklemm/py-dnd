@@ -2,7 +2,7 @@ from math import floor, ceil
 
 import attr
 
-from core.domain.klasses import Barbarian, Bard
+from core.domain.klasses import Barbarian, Bard, KlassEnum, get_klass
 from core.domain.races import Dwarf, Halfling, RaceEnum, get_race
 
 XP_TO_LEVEL_LIST = [
@@ -99,12 +99,12 @@ class Character(object):
         return floor(self.base_charisma - 10)
 
 
-def create_character(race: RaceEnum):
-    c = Character(name='Bruenor', race=get_race(race), klass=Barbarian())
+def create_character(race: RaceEnum, klass: KlassEnum):
+    c = Character(name='Bruenor', race=get_race(race), klass=get_klass(klass))
     c.hp = c.maximum_hp
     return c
 
 
 if __name__ == '__main__':
-    c = create_character(RaceEnum.DWARF)
+    c = create_character(RaceEnum.DWARF, KlassEnum.BARD)
     print(c)
