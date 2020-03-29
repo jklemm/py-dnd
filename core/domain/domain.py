@@ -2,41 +2,7 @@ from math import floor, ceil
 
 import attr
 
-
-class Race(object):
-    aditional_strength = 0
-    aditional_constitution = 0
-    aditional_dexterity = 0
-    aditional_intelligence = 0
-    aditional_wisdom = 0
-    aditional_charisma = 0
-
-    def __str__(self):
-        return "Race"
-
-
-class Dwarf(Race):
-    aditional_strength = 2
-    aditional_constitution = 2
-    aditional_dexterity = 0
-    aditional_intelligence = 0
-    aditional_wisdom = 0
-    aditional_charisma = 0
-
-    def __str__(self):
-        return "Dwarf"
-
-
-class Halfling(Race):
-    aditional_strength = 0
-    aditional_constitution = 0
-    aditional_dexterity = 2
-    aditional_intelligence = 0
-    aditional_wisdom = 0
-    aditional_charisma = 0
-
-    def __str__(self):
-        return "Halfling"
+from core.domain.races import Dwarf, Halfling
 
 
 class Klass(object):
