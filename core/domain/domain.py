@@ -105,12 +105,12 @@ class Character(object):
         return floor(self.base_charisma - 10)
 
 
-def create_character(race: RaceEnum, klass: KlassEnum):
-    c = Character(name='Bruenor', race=get_race(race), klass=get_klass(klass))
-    c.hp = c.maximum_hp
-    return c
+def create_character(name: str, race: RaceEnum, klass: KlassEnum):
+    character = Character(name, race=get_race(race), klass=get_klass(klass))
+    character.hp = character.maximum_hp
+    return character
 
 
 if __name__ == '__main__':
-    c = create_character(RaceEnum.DWARF, KlassEnum.BARD)
+    c = create_character('Bruenor', RaceEnum.DWARF, KlassEnum.BARD)
     print(c)
