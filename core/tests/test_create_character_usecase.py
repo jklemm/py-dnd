@@ -1,7 +1,7 @@
 from unittest import TestCase
-from core.structs import CharacterStruct
-from core.usecases import CreateCharacterUsecase
-from core.gateways import CharacterGateway
+from core.structs.character_struct import CharacterStruct
+from core.usecases.create_character_usecase import CreateCharacterUsecase
+from core.gateways.character_gateway import CharacterGateway
 
 
 class CreateCharacterUsecaseTests(TestCase):

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from core.utils import Dice, DiceRoller
+from core.utils.dice import Dice, DiceRoller
 
 
 class DiceSidesTests(TestCase):

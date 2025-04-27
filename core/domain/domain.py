@@ -11,7 +11,7 @@ XP_TO_LEVEL_LIST = [
 
 
 @attr.s
-class Character(object):
+class Character:
     # basic
     name = attr.ib(validator=attr.validators.instance_of(str))
     race = attr.ib(validator=attr.validators.instance_of((Dwarf, Halfling)))

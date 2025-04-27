@@ -1,8 +1,8 @@
-from core.structs import AbilityScoreStruct
-from core.structs import CharacterStruct
+from core.structs.ability_score_struct import AbilityScoreStruct
+from core.structs.character_struct import CharacterStruct
 
 
-class CharacterGateway(object):
+class CharacterGateway:
     def __init__(self):
         self.ability_score = AbilityScoreStruct()
         self.character_struct = None

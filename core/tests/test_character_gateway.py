@@ -1,7 +1,9 @@
 from unittest import TestCase
-from core.gateways import CharacterGateway
-from core.entities import DwarfRaceEntity, ElfRaceEntity, DefaultRaceEntity
-from core.structs import CharacterStruct
+from core.gateways.character_gateway import CharacterGateway
+from core.entities.dwarf_race_entity import DwarfRaceEntity
+from core.entities.elf_race_entity import ElfRaceEntity
+from core.entities.default_race_entity import DefaultRaceEntity
+from core.structs.character_struct import CharacterStruct
 
 
 class CharacterGatewayTests(TestCase):
@@ -50,9 +52,9 @@ class CharacterGatewayTests(TestCase):
         self._assertAbilityScore(character, 10, 12, 10, 10, 12, 10)
 
     def _assertAbilityScore(self, character, strength, constitution, dexterity, intelligence, wisdom, charisma):
-        self.assertEquals(character.strength, strength)
-        self.assertEquals(character.constitution, constitution)
-        self.assertEquals(character.dexterity, dexterity)
-        self.assertEquals(character.intelligence, intelligence)
-        self.assertEquals(character.wisdom, wisdom)
-        self.assertEquals(character.charisma, charisma)
+        self.assertEqual(character.strength, strength)
+        self.assertEqual(character.constitution, constitution)
+        self.assertEqual(character.dexterity, dexterity)
+        self.assertEqual(character.intelligence, intelligence)
+        self.assertEqual(character.wisdom, wisdom)
+        self.assertEqual(character.charisma, charisma)

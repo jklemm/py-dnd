@@ -16,7 +16,7 @@ def get_race(race: RaceEnum):
     return selected_race()
 
 
-class Dwarf(object):
+class Dwarf:
     aditional_strength = 2
     aditional_constitution = 2
     aditional_dexterity = 0
@@ -28,7 +28,7 @@ class Dwarf(object):
         return "Dwarf"
 
 
-class Halfling(object):
+class Halfling:
     aditional_strength = 0
     aditional_constitution = 0
     aditional_dexterity = 2

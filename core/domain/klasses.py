@@ -16,7 +16,7 @@ def get_klass(klass: KlassEnum):
     return selected_klass()
 
 
-class Barbarian(object):
+class Barbarian:
     health_dice = 12
     base_hp = 12
 
@@ -24,7 +24,7 @@ class Barbarian(object):
         return "Barbarian"
 
 
-class Bard(object):
+class Bard:
     health_dice = 8
     base_hp = 8
 

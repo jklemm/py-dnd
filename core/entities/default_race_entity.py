@@ -1,8 +1,8 @@
-from core.structs import AbilityScoreStruct
-from core.structs import RaceStruct
+from core.structs.ability_score_struct import AbilityScoreStruct
+from core.structs.race_struct import RaceStruct
 
 
-class DefaultRaceEntity(object):
+class DefaultRaceEntity:
     def __init__(self):
         self.race = RaceStruct()
 

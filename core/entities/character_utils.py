@@ -1,5 +1,5 @@
 
-class CharacterRaceList(object):
+class CharacterRaceList:
     DEVA = 'DEVA'
     DRAGONBORN = 'DRAGONBORN'
     DWARF = 'DWARF'
@@ -19,7 +19,7 @@ class CharacterRaceList(object):
     WILDEN = 'WILDEN'
 
 
-class CharacterClassList(object):
+class CharacterClassList:
     ARDENT = 'ARDENT'
     AVENGER = 'AVENGER'
     BARBARIAN = 'BARBARIAN'
@@ -44,14 +44,14 @@ class CharacterClassList(object):
     WIZARD = 'WIZARD'
 
 
-class CharacterRoleList(object):
+class CharacterRoleList:
     CONTROLLER = 'CONTROLLER'
     DEFENDER = 'DEFENDER'
     LEADER = 'LEADER'
     STRIKER = 'STRIKER'
 
 
-class AlignmentList(object):
+class AlignmentList:
     GOOD = 'GOOD'
     LAWFUL_GOOD = 'LAWFUL_GOOD'
     UNALIGNED = 'UNALIGNED'
@@ -59,7 +59,7 @@ class AlignmentList(object):
     CHAOTIC_EVIL = 'CHAOTIC_EVIL'
 
 
-class DeitiesList(object):
+class DeitiesList:
     ASMODEUS = AlignmentList.EVIL
     AVANDRA = AlignmentList.GOOD
     BAHAMUT = AlignmentList.LAWFUL_GOOD
@@ -81,7 +81,7 @@ class DeitiesList(object):
     ZEHIR = AlignmentList.EVIL
 
 
-class ScriptList(object):
+class ScriptList:
     COMMON = 'COMMON'
     RELLANIC = 'RELLANIC'
     IOKHARIC = 'IOKHARIC'
@@ -90,7 +90,7 @@ class ScriptList(object):
     SUPERNAL = 'SUPERNAL'
 
 
-class LanguageList(object):
+class LanguageList:
     COMMON = ScriptList.COMMON
     DEEP_SPEECH = ScriptList.RELLANIC
     DRACONIC = ScriptList.IOKHARIC

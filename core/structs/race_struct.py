@@ -1,7 +1,4 @@
-
-
-class RaceStruct(object):
-
+class RaceStruct:
     def __init__(self):
-        from core.structs import AbilityScoreStruct
+        from core.structs.ability_score_struct import AbilityScoreStruct
         self.ability_score = AbilityScoreStruct()

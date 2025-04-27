@@ -1,4 +1,4 @@
-from core.entities import DefaultRaceEntity
+from core.entities.default_race_entity import DefaultRaceEntity
 
 
 class ElfRaceEntity(DefaultRaceEntity):

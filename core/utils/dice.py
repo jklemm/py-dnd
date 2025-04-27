@@ -2,8 +2,7 @@ from random import randint
 import re
 
 
-class Dice(object):
-
+class Dice:
     def __init__(self, sides=4):
         self.sides = sides
 
@@ -15,7 +14,7 @@ class Dice(object):
         return randint(1, self.sides)
 
 
-class DiceRoller(object):
+class DiceRoller:
 
     def __init__(self, d20_formula):
         self.dice = Dice()
