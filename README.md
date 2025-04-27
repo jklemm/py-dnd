@@ -20,8 +20,11 @@ First of all, I'm writing the specs of the project in the [Project Wiki](https:/
 - [Python 3.13+](https://www.python.org/downloads/)
 
 ## Installation
-Basic python install:
+
+Basic python install and requirements:
 ```
+pyenv install
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
@@ -29,7 +32,9 @@ pip install -r requirements.txt
 This project is under [MIT License](http://opensource.org/licenses/MIT)
 
 All Dungeons and Dragons rights to [Wizards of the Coast](http://www.wizards.com/dnd/)
+
 ## Resources
+
 [Python Official Website](https://www.python.org/)
 
 [A beginners introduction into Python](http://www.afterhoursprogramming.com/tutorial/Python/Introduction/)
