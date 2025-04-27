@@ -17,7 +17,7 @@ So, don't expect a 3D MMORPG, just text cli or 2d like a 'RPG Maker game' is a g
 First of all, I'm writing the specs of the project in the [Project Wiki](https://github.com/jklemm/py-dnd/wiki/)
 
 ## Requirements
-- [Python 3.6+](https://www.python.org/downloads/)
+- [Python 3.13+](https://www.python.org/downloads/)
 
 ## Installation
 Basic python install:
