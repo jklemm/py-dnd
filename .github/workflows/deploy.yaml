@@ -1,0 +1,16 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  linter:
+    uses: ./.github/workflows/linter-and-tests.yaml
+
+  deploy:
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 60

@@ -1,0 +1,21 @@
+name: Linter and Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+concurrency:
+  group: lint-and-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 60
+
+  unit-tests:
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 60
