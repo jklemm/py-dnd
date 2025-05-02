@@ -1,6 +1,7 @@
 name: Linter and Tests
 
 on:
+  workflow_call:
   pull_request:
     types: [opened, synchronize]
 
