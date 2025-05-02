@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep
+        run: sleep 60
+
+  unit-tests:
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep
+        run: sleep 60
+
+  deploy:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep
+        run: sleep 60
