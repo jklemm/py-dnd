@@ -12,7 +12,7 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 90
+      - run: sleep 60
 
   unit-tests:
     needs: linter
