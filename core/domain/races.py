@@ -1,40 +1,25 @@
-from enum import unique, IntEnum
+from pydantic.v1 import BaseModel, PositiveInt
 
 
-@unique
-class RaceEnum(IntEnum):
-    DWARF = 1
-    HALFLING = 2
+class BaseRace(BaseModel):
+    additional_strength: PositiveInt = 0
+    additional_constitution: PositiveInt = 0
+    additional_dexterity: PositiveInt = 0
+    additional_intelligence: PositiveInt = 0
+    additional_wisdom: PositiveInt = 0
+    additional_charisma: PositiveInt = 0
 
 
-def get_race(race: RaceEnum):
-    races = {
-        RaceEnum.DWARF: Dwarf,
-        RaceEnum.HALFLING: Halfling,
-    }
-    selected_race = races.get(race)
-    return selected_race()
-
-
-class Dwarf:
-    aditional_strength = 2
-    aditional_constitution = 2
-    aditional_dexterity = 0
-    aditional_intelligence = 0
-    aditional_wisdom = 0
-    aditional_charisma = 0
+class Dwarf(BaseRace):
+    additional_strength: PositiveInt = 2
+    additional_constitution: PositiveInt = 2
 
     def __str__(self):
-        return "Dwarf"
+        return 'Dwarf'
 
 
-class Halfling:
-    aditional_strength = 0
-    aditional_constitution = 0
-    aditional_dexterity = 2
-    aditional_intelligence = 0
-    aditional_wisdom = 0
-    aditional_charisma = 0
+class Halfling(BaseRace):
+    additional_dexterity: PositiveInt = 2
 
     def __str__(self):
-        return "Halfling"
+        return 'Halfling'

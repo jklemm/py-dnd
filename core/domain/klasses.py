@@ -1,32 +1,22 @@
-from enum import unique, IntEnum
+from pydantic.v1 import BaseModel, PositiveInt
 
 
-@unique
-class KlassEnum(IntEnum):
-    BARBARIAN = 1
-    BARD = 2
+class BaseKlass(BaseModel):
+    health_dice: PositiveInt = 0
+    base_hp: PositiveInt = 0
 
 
-def get_klass(klass: KlassEnum):
-    klasses = {
-        KlassEnum.BARBARIAN: Barbarian,
-        KlassEnum.BARD: Bard,
-    }
-    selected_klass = klasses.get(klass)
-    return selected_klass()
-
-
-class Barbarian:
-    health_dice = 12
-    base_hp = 12
+class Barbarian(BaseKlass):
+    health_dice: PositiveInt = 12
+    base_hp: PositiveInt = 12
 
     def __str__(self):
-        return "Barbarian"
+        return 'Barbarian'
 
 
-class Bard:
-    health_dice = 8
-    base_hp = 8
+class Bard(BaseKlass):
+    health_dice: PositiveInt = 8
+    base_hp: PositiveInt = 8
 
     def __str__(self):
-        return "Bard"
+        return 'Bard'

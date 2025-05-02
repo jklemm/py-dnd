@@ -1,3 +1,4 @@
-attrs==25.3.0
+pydantic
+colorama
 ruff
 pytest
